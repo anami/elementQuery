@@ -176,8 +176,8 @@
             }
         }
 
-        if (!window.addEventListener && window.attachEvent) {
-            // Force a repaint in IE7 and IE8
+        // Force a repaint in IE7 and IE8 and Safari
+        if ((!window.addEventListener && window.attachEvent) || (/^((?!chrome).)*safari/i.test(navigator.userAgent))) {
             var className = document.documentElement.className;
             document.documentElement.className = " " + className;
             document.documentElement.className = className;
